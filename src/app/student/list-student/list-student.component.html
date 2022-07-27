@@ -1,0 +1,31 @@
+<button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" [routerLink]="['/create']">Tạo Mới
+</button>
+<h1 style="text-align: center">Danh Sách Học Sinh</h1>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Action</th>
+    <th></th>
+    <th></th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of listStudent, index as i">
+    <th scope="row">{{i + 1}}</th>
+    <th><a [routerLink]="['/detail-student',student.id]">{{student.name}}</a></th>
+    <th>{{student.description}}</th>
+    <th>{{student.action}}</th>
+    <th>
+      <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalEdit" [routerLink]="['/edit-student',student.id]">Sửa</button>
+    </th>
+    <th>
+      <button class="btn btn-danger" (click)="delete(student.id)">Xóa</button>
+    </th>
+
+  </tr>
+  </tbody>
+</table>
